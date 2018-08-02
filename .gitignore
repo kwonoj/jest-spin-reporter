@@ -1,0 +1,26 @@
+# Editor-specific
+.idea/
+*.sublime-project
+*.sublime-workspace
+.settings
+
+# Installed libs
+node_modules/
+typings/
+
+# Wasm binary
+src/bin/libsass.js
+
+# Generated
+dist/
+tmp/
+coverage/
+img/
+spec-js/
+.nyc_output/
+rules/
+
+# Misc
+npm-debug.log
+.DS_STORE
+libsass-asm-*.tgz
