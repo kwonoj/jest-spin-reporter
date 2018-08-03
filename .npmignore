@@ -24,4 +24,4 @@ webpack.*.ts
 CHANGELOG.md
 bootstrap.ts
 .circleci/
-libsass-asm-*.tgz
+jest-spin-*.tgz
