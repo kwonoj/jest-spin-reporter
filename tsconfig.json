@@ -14,22 +14,16 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "importHelpers": true,
-    "pretty": true,
-    "target": "es2017",
+    "target": "es5",
     "resolveJsonModule": true,
     "outDir": "dist",
     "lib": [
       "es5",
       "es2017"
     ],
-    "typeRoots" : ["./node_modules/@types"]
   },
   "formatCodeOptions": {
     "indentSize": 2,
     "tabSize": 2
-  },
-  "include": [
-    "src/**/*",
-    "spec/**/*"
-  ]
+  }
 }
