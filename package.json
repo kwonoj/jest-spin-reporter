@@ -1,7 +1,7 @@
 {
   "name": "jest-spin-reporter",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.0",
+  "description": "Test reporter for jest with progress spinner",
   "main": "./dist/main.js",
   "config": {
     "commitizen": {
@@ -16,7 +16,15 @@
     ]
   },
   "scripts": {
-    "build": "webpack --require ts-node/register"
+    "prepublishOnly": "npm-run-all build test",
+    "precommit": "lint-staged",
+    "prepush": "npm-run-all build test",
+    "commitmsg": "commitlint -e",
+    "lint": "tslint -c tslint.json -p tsconfig.json \"src/**/*.ts\" \"spec/**/*.ts\"",
+    "lint:staged": "lint-staged",
+    "build": "webpack --require ts-node/register",
+    "commit": "git-cz -S",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
