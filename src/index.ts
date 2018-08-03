@@ -14,23 +14,19 @@ class JestSpinReporter implements jest.Reporter {
   }
 
   public onRunComplete?(_contexts: Set<jest.Context>, results: jest.AggregatedResult): jest.Maybe<Promise<void>> {
-    const {
-      numFailedTests,
-      numPassedTests,
-      numPendingTests,
-      testResults,
-      numTotalTests,
-      startTime
-    } = results;
+    const { numFailedTests, numPassedTests, numPendingTests, testResults, numTotalTests, startTime } = results;
     const duration = humanize(Date.now() - startTime);
 
-    testResults.map(({ failureMessage }) => failureMessage).filter((x) => !!x).forEach(console.log.bind(console));
+    testResults
+      .map(({ failureMessage }) => failureMessage)
+      .filter(x => !!x)
+      .forEach(console.log.bind(console));
 
     const output = [
       numPassedTests ? `${chalk.default.green('✔')} ${numPassedTests}` : null,
       numPendingTests ? `${chalk.default.cyan('-')} ${numPendingTests}` : null,
-      numFailedTests ? `${chalk.default.red('✘')} ${numFailedTests}` : null,
-    ].filter((x) => !!x);
+      numFailedTests ? `${chalk.default.red('✘')} ${numFailedTests}` : null
+    ].filter(x => !!x);
 
     this.spinner(numFailedTests ? false : true, `${output.join(',')} / ${numTotalTests}, ${duration}`);
   }

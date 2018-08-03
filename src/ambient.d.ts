@@ -3,9 +3,7 @@ declare module 'smart-spinner' {
   function progressIndicator(result: boolean, message: string): void;
 
   const create: (message: string, spinnerList?: Array<string>) => typeof progressIndicator;
-  export {
-    create
-  }
+  export { create };
 }
 
 declare module 'cli-spinners';
