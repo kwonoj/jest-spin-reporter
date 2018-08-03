@@ -1,4 +1,4 @@
-[![npm](https://badgen.now.sh/npm/v/jest-spin-reporter)](https://badgen.now.sh/npm/v/jest-spin-reporter)
+[![npm](https://badgen.now.sh/npm/v/jest-spin-reporter)](https://www.npmjs.com/package/jest-spin-reporter)
 
 # Jest spin reporter
 
