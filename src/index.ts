@@ -10,7 +10,7 @@ class JestSpinReporter implements jest.Reporter {
   constructor(_globalConfig: unknown, _options: unknown) {
     const spinnersList: Array<string> = Object.keys(spinners);
     const selectedSpinner: string = spinnersList[Math.floor(Math.random() * spinnersList.length)];
-    this.spinner = create('Preparing…', [selectedSpinner]);
+    this.spinner = create(`Preparing …`, [selectedSpinner]);
   }
 
   public onRunComplete?(_contexts: Set<jest.Context>, results: jest.AggregatedResult): jest.Maybe<Promise<void>> {
@@ -27,12 +27,12 @@ class JestSpinReporter implements jest.Reporter {
     testResults.map(({ failureMessage }) => failureMessage).filter((x) => !!x).forEach(console.log.bind(console));
 
     const output = [
-      `${numPassedTests ? `${chalk.default.green('✔')} ${numPassedTests}` : ''}`,
-      `${numFailedTests ? `${chalk.default.red('✘')} ${numFailedTests}` : ''}`,
-      `${numPendingTests ? `${chalk.default.cyan('-')} ${numPendingTests}` : ''}`
-    ];
+      numPassedTests ? `${chalk.default.green('✔')} ${numPassedTests}` : null,
+      numPendingTests ? `${chalk.default.cyan('-')} ${numPendingTests}` : null,
+      numFailedTests ? `${chalk.default.red('✘')} ${numFailedTests}` : null,
+    ].filter((x) => !!x);
 
-    this.spinner(numFailedTests ? false : true, `${output.join(' ')} / ${numTotalTests}, ${duration}`);
+    this.spinner(numFailedTests ? false : true, `${output.join(',')} / ${numTotalTests}, ${duration}`);
   }
   public onTestResult?(_test: jest.Test, _testResult: jest.TestResult, aggregatedResult: jest.AggregatedResult): void {
     const { numTotalTestSuites } = aggregatedResult;
