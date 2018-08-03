@@ -28,7 +28,7 @@ class JestSpinReporter implements jest.Reporter {
       numFailedTests ? `${chalk.default.red('✘')} ${numFailedTests}` : null
     ].filter(x => !!x);
 
-    this.spinner(numFailedTests ? false : true, `${output.join(',')} / ${numTotalTests}, ${duration}`);
+    this.spinner(numFailedTests ? false : true, `${output.join(', ')} / ${numTotalTests}, ${duration}`);
   }
   public onTestResult?(_test: jest.Test, _testResult: jest.TestResult, aggregatedResult: jest.AggregatedResult): void {
     const { numTotalTestSuites } = aggregatedResult;
