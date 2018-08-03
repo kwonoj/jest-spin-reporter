@@ -1,3 +1,8 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/kwonoj/jest-spin-reporter/compare/1.0.0...1.0.1) (2018-08-03)
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2018-08-03)
 

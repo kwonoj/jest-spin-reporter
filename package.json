@@ -1,6 +1,6 @@
 {
   "name": "jest-spin-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test reporter for jest with progress spinner",
   "main": "./dist/main.js",
   "config": {
@@ -20,6 +20,7 @@
     "precommit": "lint-staged",
     "prepush": "npm-run-all build test",
     "commitmsg": "commitlint -e",
+    "test": "echo not",
     "lint": "tslint -c tslint.json -p tsconfig.json \"src/**/*.ts\" \"spec/**/*.ts\"",
     "lint:staged": "lint-staged",
     "build": "webpack --require ts-node/register",
@@ -30,7 +31,7 @@
     "type": "git",
     "url": "git+https://github.com/kwonoj/jest-spin-reporter.git"
   },
-  "keywords": [],
+  "keywords": ["Jest", "Reporter", "Spinner", "Progress"],
   "author": "OJ Kwon <kwon.ohjoong@gmail.com>",
   "license": "MIT",
   "bugs": {
