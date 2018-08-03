@@ -1,6 +1,6 @@
 {
   "name": "jest-spin-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test reporter for jest with progress spinner",
   "main": "./dist/main.js",
   "config": {
