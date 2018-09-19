@@ -1,5 +1,5 @@
 import * as path from 'path';
-import * as uglifyJsPlugin from 'uglifyjs-webpack-plugin';
+const TerserPlugin = require('terser-webpack-plugin'); //tslint:disable-line:no-require-imports no-var-requires
 const generateAssetWebpackPlugin = require('generate-asset-webpack-plugin'); //tslint:disable-line:no-require-imports no-var-requires
 
 module.exports = {
@@ -7,6 +7,13 @@ module.exports = {
   mode: 'development',
   entry: './src/index.ts',
   devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        sourceMap: true
+      })
+    ]
+  },
 
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -36,19 +43,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new uglifyJsPlugin({
-      sourceMap: true,
-      uglifyOptions: {
-        compress: {
-          ecma: 6,
-          pure_getters: true,
-          passes: 3,
-          sequences: false,
-          dead_code: true
-        },
-        output: { comments: false, beautify: false }
-      }
-    }),
     new generateAssetWebpackPlugin({
       filename: 'main.js',
       fn: (_: any, cb: Function) => {
