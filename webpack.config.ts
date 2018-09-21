@@ -3,8 +3,8 @@ const TerserPlugin = require('terser-webpack-plugin'); //tslint:disable-line:no-
 const generateAssetWebpackPlugin = require('generate-asset-webpack-plugin'); //tslint:disable-line:no-require-imports no-var-requires
 
 module.exports = {
-  //mode: 'production',
-  mode: 'development',
+  mode: 'production',
+  //mode: 'development',
   entry: './src/index.ts',
   devtool: 'source-map',
   optimization: {
