@@ -20,7 +20,7 @@ class JestSpinReporter implements jest.Reporter {
     testResults
       .map(({ failureMessage }) => failureMessage)
       .filter(x => !!x)
-      .forEach(console.log.bind(console));
+      .forEach(x => console.log(x));
 
     const output = [
       numPassedTests ? `${chalk.default.green('✔')} ${numPassedTests}` : null,
