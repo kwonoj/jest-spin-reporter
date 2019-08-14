@@ -6,5 +6,4 @@ declare module 'smart-spinner' {
   export { create };
 }
 
-declare module 'cli-spinners';
-declare module 'humanize-duration';
+declare module 'pretty-ms';

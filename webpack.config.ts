@@ -28,13 +28,15 @@ module.exports = {
 
   target: 'node',
 
+  node: false,
+
   module: {
     // configuration regarding modules
     rules: [
       {
         enforce: 'pre',
         test: /\.ts$|\.tsx$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/,
         loader: 'ts-loader',
         options: {
           transpileOnly: true
